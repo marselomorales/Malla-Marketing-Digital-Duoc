@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="color-scheme" content="light dark"/>
+  <title>Malla Interactiva — Ingeniería en Marketing Digital</title>
+
+  <!-- Ionicons (for small icons) -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="./marketing_styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <h1>Malla Interactiva</h1>
+        <div class="subtitle">Ingeniería en Marketing Digital — Seguimiento de progreso y prerrequisitos</div>
+      </div>
+
+      <button class="dark-mode" id="theme-toggle" aria-label="Cambiar tema" role="switch" aria-checked="false">
+        <div class="circle">
+          <ion-icon class="sun" name="sunny"></ion-icon>
+          <ion-icon class="moon" name="moon"></ion-icon>
+        </div>
+      </button>
+    </header>
+
+    <section class="progress-container" aria-live="polite">
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-value" id="total-ramos">0</div>
+          <div class="stat-label">Total ramos</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="aprobados-ramos">0</div>
+          <div class="stat-label">Aprobados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="creditos-total">0/0</div>
+          <div class="stat-label">Créditos (solo con cifra)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="porcentaje">0%</div>
+          <div class="stat-label">Progreso</div>
+        </div>
+      </div>
+      <div class="progress" aria-label="Progreso total">
+        <div class="progress-bar" id="barraProgreso">
+          <div class="progress-text" id="textoProgreso">0%</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="legend">
+      <span><span class="cuadro lg-aprob"></span> Aprobado</span>
+      <span><span class="cuadro lg-disp"></span> Disponible</span>
+      <span><span class="cuadro lg-bloq"></span> Bloqueado</span>
+    </div>
+
+    <div class="area-filter" role="group" aria-label="Filtrar por área">
+      <button class="area-btn" data-area="all">Todos</button>
+      <button class="area-btn" data-area="marketing">Marketing</button>
+      <button class="area-btn" data-area="ventas">Ventas</button>
+      <button class="area-btn" data-area="negocios">Adm. & Negocios</button>
+      <button class="area-btn" data-area="datos">Datos</button>
+      <button class="area-btn" data-area="talleres">Talleres</button>
+      <button class="area-btn" data-area="globales">Globales / Optativos</button>
+      <button class="area-btn" data-area="generales">Generales/Ética</button>
+    </div>
+
+    <div class="controls-container">
+      <div class="controls">
+        <button class="btn" id="btn-reset"><ion-icon name="refresh-outline"></ion-icon> Reiniciar</button>
+        <button class="btn" id="toggle-disponibles"><ion-icon name="eye-outline"></ion-icon> Solo Disponibles</button>
+      </div>
+      <div class="search-container">
+        <ion-icon name="search-outline"></ion-icon>
+        <input type="text" id="search-input" placeholder="Buscar por nombre…" aria-label="Buscar ramos"/>
+      </div>
+    </div>
+
+    <div class="grid" id="malla" role="list"></div>
+  </div>
+
+  <footer class="footer">
+    <small>Hecho con ❤️ por Marcelo — <a href="https://www.instagram.com/chelo_.morales" target="_blank" rel="noopener">IG</a></small>
+  </footer>
+
+  <!-- Tooltip toque -->
+  <div id="touch-tip" role="status" aria-live="polite"></div>
+
+  <!-- App JS -->
+  <script src="./marketing_app.js"></script>
+</body>
+</html>
